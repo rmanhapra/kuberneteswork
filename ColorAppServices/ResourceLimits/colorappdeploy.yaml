@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colorapi-depl
+  namespace: dev
+  labels:
+    app: colorapi-depl
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: colorapi
+  template:
+    metadata:
+      labels:
+        app: colorapi
+    spec:
+      containers:
+        - name: colorapi
+          image: docker123rakesh/colorapp:latest
+          resources:
+            requests:
+              cpu: '200m'
+              memory: '256Mi'
+            limits:
+              cpu: '500m'
+              memory: '512Mi'
+          ports:
+            - containerPort: 80

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: colorapp-heavy
+  namespace: dev
+  labels:
+    name: colorapp-heavy
+spec:
+  containers:
+  - name: colorapp-container
+    image: docker123rakesh/colorapp:v1
+    ports:
+    - containerPort: 80
+    resources:
+      requests:
+        cpu: '1.5'
+        memory: '1.5Gi'
+      limits:
+        cpu: '2'
+        memory: '2Gi'
+      

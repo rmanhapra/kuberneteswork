@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colorapp-deploy
+  labels:
+    app: colorapp-deploy
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: colorapp
+  template:
+    metadata:
+      labels:
+        app: colorapp
+    spec:
+      containers:
+      - name: colorapp-container
+        image: docker123rakesh/colorapp:v1
+        ports:
+        - containerPort: 80

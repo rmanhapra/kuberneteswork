@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: localpvss-1
+spec:
+  capacity:
+    storage: '250Mi'
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-storage
+  local:
+    path: /mnt/disks/localss1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values: ['minikube']
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: localpvss-2
+spec:
+  capacity:
+    storage: '250Mi'
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-storage
+  local:
+    path: /mnt/disks/localss2
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values: ['minikube']
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: localpvss-3
+spec:
+  capacity:
+    storage: '250Mi'
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-storage
+  local:
+    path: /mnt/disks/localss3
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values: ['minikube']

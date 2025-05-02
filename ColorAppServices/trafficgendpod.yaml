@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trafficgen
+  labels:
+    name: trafficgen
+spec:
+  containers:
+  - name: trafficgen-container
+    image: docker123rakesh/trafficgenerator:v1
+    args:
+    - "colorapp-svc-np:80/api"
+    - "5"

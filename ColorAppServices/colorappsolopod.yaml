@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: colorapp
+  labels:
+    name: colorapp
+spec:
+  containers:
+  - name: colorapp-container
+    image: docker123rakesh/colorapp:v1
+    ports:
+    - containerPort: 80
